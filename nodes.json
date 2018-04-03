@@ -1,0 +1,24 @@
+{
+  "nodes": {
+    "tony.vagrant": {
+      ":ip": "10.20.1.8",
+      ":box": "ubuntu/xenial64",
+      "ports": [
+        {
+          ":host": "5000",
+          ":guest": "5000",
+          ":id": "flask"
+        },
+        {
+          ":host": "8080",
+          ":guest": "8080",
+          ":id": "google-auth"
+        }
+      ],
+      ":memory": 1024,
+      ":bootstrap": "bootstrap_tony.vagrant.sh",
+      "mounts": [
+      ]
+    }
+  }
+}

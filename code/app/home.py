@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import flask
-from flask-gapps-connector import *
+from flask_gapps_connector import *
 
 def getDriveTree():
     """ Show Google Drive Tree

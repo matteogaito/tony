@@ -1,3 +1,0 @@
-[submodule "code/app/FlaskGappsConnector"]
-	path = code/app/FlaskGappsConnector
-	url = git@github.com:matteogaito/flask-gapps-connector.git

@@ -7,8 +7,8 @@ app.db
 pdfs
 .credentials
 *credentials.json
-tony_code/tony.db
-tony_code/tony.log
+code/tony.db
+code/tony.log
 *.swp
 jobs.db
 .DS_Store

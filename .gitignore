@@ -13,3 +13,4 @@ tony_code/tony.log
 jobs.db
 .DS_Store
 *config.py
+code/app/FlaskGappsConnector

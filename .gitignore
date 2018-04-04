@@ -8,8 +8,9 @@ pdfs
 .credentials
 *credentials.json
 code/tony.db
-code/tony.log
+code/tony.log*
 *.swp
 jobs.db
 .DS_Store
 *config.py
+google-api-access.json

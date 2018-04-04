@@ -17,3 +17,4 @@ telegram
 flask_apscheduler
 apscheduler
 requests
+git+https://github.com/matteogaito/flask-gapps-connector

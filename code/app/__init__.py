@@ -10,3 +10,4 @@ db = SQLAlchemy(app)
 
 #from app import route,telegram_connector,home
 from app import home
+from app import sprea_downloader

@@ -34,10 +34,10 @@ def getDriveTree():
 
 @app.route("/")
 def home():
-  mydrivedirs = getDriveTree()
-  #Do redirect if the response of the function is a redirect
-  if isinstance(mydrivedirs, werkzeug.wrappers.Response):
-    return(mydrivedirs)
-  #return render_template('home.html', mydrivedirs=mydrivedirs, mytenevents=mytenevents)
-  return render_template('home.html', mydrivedirs=mydrivedirs)
-  return("ok")
+    mydrivedirs = getDriveTree()
+    #Do redirect if the response of the function is a redirect
+    if isinstance(mydrivedirs, werkzeug.wrappers.Response):
+        return(mydrivedirs)
+    #return render_template('home.html', mydrivedirs=mydrivedirs, mytenevents=mytenevents)
+    return render_template('home.html', mydrivedirs=mydrivedirs)
+    return("ok")

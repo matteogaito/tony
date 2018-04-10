@@ -14,3 +14,6 @@ jobs.db
 .DS_Store
 *config.py
 google-api-access.json
+flask-gapps-connector/
+sprea-utils
+code/downloads/

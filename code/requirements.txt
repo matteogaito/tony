@@ -12,6 +12,7 @@ google-api-python-client-py3
 mechanicalsoup
 PyDrive
 PyOpenSSL
+pyasn1==0.4.2
 python-telegram-bot
 telegram
 flask_apscheduler

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from app import app
 
-from sprea_utils.sprea_utils import Sprea
-from flask_gapps_connector.flask_gapps_connector import DriveInizialize
+from sprea_utils import Sprea
+from flask_gapps_connector import DriveInizialize
+from app.telegram_connector import botSendMessage
 
 # sl object contain logged session in sprea.it
 sl = Sprea(app.config['SPREA_USERNAME'], app.config['SPREA_PASSWORD'])
@@ -35,7 +36,9 @@ def downloadLastEbookIfMissing():
         f = drive.CreateFile({'title': pdfinfo['name'], "parents": [{"kind": "drive#fileLink", "id": app.config['EBOOK_FOLDER']}]})
         f.SetContentFile(pdf_path)
         f.Upload()
+        botSendMessage('File {} downloaded'.format(pdfinfo['name']))
         return(pdf_path)
     else:
+        botSendMessage('File {} already downloaded'.format(pdfinfo['name']))
         return("Pdf Presente")
 

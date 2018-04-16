@@ -8,7 +8,7 @@ from app.telegram_connector import botSendMessage
 # sl object contain logged session in sprea.it
 sl = Sprea(app.config['SPREA_USERNAME'], app.config['SPREA_PASSWORD'])
 
-@app.route('/checklastpdf')
+@app.route('/sprea/check_last_pdf')
 def checkEsistenceLastPDFintoGdrive():
     #Get Pdf Name by Url
     last_pdf_url = sl.getOnePdfUrlofCampaign(app.config['SPREA_CAMPAIGN'], 0)
@@ -26,7 +26,7 @@ def checkEsistenceLastPDFintoGdrive():
 
     return(last_pdf_url, found)
 
-@app.route('/checkifmissed')
+@app.route('/download_last_pdf_if_missing')
 def downloadLastEbookIfMissing():
     last_pdf_url, missing = checkEsistenceLastPDFintoGdrive()
     pdfinfo = sl._getPdfInfo(last_pdf_url)

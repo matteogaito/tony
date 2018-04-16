@@ -10,6 +10,6 @@ RUN locale-gen
 
 RUN pip3 install -r /etc/tony-requirements.txt
 
-EXPOSE 5000
+EXPOSE 8000
 
-CMD ["python3", "/tony/tony.py" ]
+CMD ["/usr/local/bin/gunicorn", "--chdir", "/tony", "tony:app", "--preload"]

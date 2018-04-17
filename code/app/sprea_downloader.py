@@ -28,9 +28,9 @@ def checkEsistenceLastPDFintoGdrive():
 
 @app.route('/download_last_pdf_if_missing')
 def downloadLastEbookIfMissing():
-    last_pdf_url, missing = checkEsistenceLastPDFintoGdrive()
+    last_pdf_url, found = checkEsistenceLastPDFintoGdrive()
     pdfinfo = sl._getPdfInfo(last_pdf_url)
-    if not missing:
+    if not found:
         pdf_path = sl.downloadPDFbyURL(last_pdf_url)
         drive = DriveInizialize( app.config['DRIVE_SCOPE'], app.config['GOOGLE_API_ACCESS'])
         f = drive.CreateFile({'title': pdfinfo['name'], "parents": [{"kind": "drive#fileLink", "id": app.config['EBOOK_FOLDER']}]})

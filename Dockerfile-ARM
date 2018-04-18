@@ -12,4 +12,4 @@ RUN pip3 install -r /etc/tony-requirements.txt
 
 EXPOSE 8000
 
-CMD ["/usr/local/bin/gunicorn", "--chdir", "/tony", "tony:app", "--preload"]
+CMD ["/usr/local/bin/gunicorn", "-c", "/tony/sys/gunicorn_conf.py", "--chdir", "/tony", "tony:app", "--preload"]

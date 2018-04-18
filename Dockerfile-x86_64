@@ -1,0 +1,15 @@
+FROM python:3.5-jessie
+MAINTAINER Matteo Gaito
+
+ADD code/requirements.txt /etc/tony-requirements.txt
+
+RUN mkdir /tony
+RUN apt-get update && apt-get install locales
+RUN echo "it_IT.UTF-8 UTF-8" > /etc/locale.gen
+RUN locale-gen
+
+RUN pip3 install -r /etc/tony-requirements.txt
+
+EXPOSE 8000
+
+CMD ["/usr/local/bin/gunicorn", "-c", "/tony/sys/gunicorn_conf.py", "--chdir", "/tony", "tony:app", "--preload"]

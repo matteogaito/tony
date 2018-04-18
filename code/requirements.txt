@@ -18,5 +18,6 @@ telegram
 flask_apscheduler
 apscheduler
 requests
+urllib3==1.13.1
 git+https://github.com/matteogaito/flask-gapps-connector
 git+https://github.com/matteogaito/sprea-utils

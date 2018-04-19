@@ -7,3 +7,5 @@ sudo locale-gen "it_IT.UTF-8"
 pip3 install -r /vagrant/code/requirements.txt
 
 apt-get install sqlite3 -y
+
+ln -s /vagrant/code /tony

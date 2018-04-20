@@ -25,7 +25,7 @@ then
 	done
 
 	docker build -t ${DOCKER_NAME}:${VERSION} -f Dockerfile-${ARCHITECTURE} .
-	docker run -d -p 8000:8000 -v ${CODEDIR}:/tony ${DOCKER_NAME}:${VERSION}
+	docker run -d -p 5000:5000 -v ${CODEDIR}:/tony ${DOCKER_NAME}:${VERSION}
 else
 	echo "Version already built"
 	docker images | grep $VERSION

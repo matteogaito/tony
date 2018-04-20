@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from flask_gapps_connector import DriveInizialize 
+#from app.flask_gapps_connector import DriveInizialize
+#from app.flask_gapps_connector.flask_gapps_connector import *
+from flask_gapps_connector import DriveInizialize
 
 import werkzeug
 from flask import render_template

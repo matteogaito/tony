@@ -9,7 +9,7 @@ CODEDIR="${PROJDIR}/code"
 ARCHITECTURE=$(uname -m)
 git pull
 
-VERSION="$(tar -c --exclude "*.git" ${PROJDIR} | ${MD5SUM} | cut -d" " -f1)"
+VERSION="$(cd ${PROJDIR} ; tar -c --exclude "*.git" ./ | ${MD5SUM} | cut -d" " -f1)"
 
 CHECKEXIST="$(docker images | grep $DOCKER_NAME | grep -c $VERSION )"
 

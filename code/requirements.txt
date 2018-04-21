@@ -9,7 +9,7 @@ gunicorn
 httplib2
 mechanicalsoup
 PyDrive
-PyOpenSSL
+#PyOpenSSL
 pyasn1==0.4.2
 python-telegram-bot
 telegram

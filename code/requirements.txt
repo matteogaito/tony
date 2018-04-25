@@ -17,5 +17,8 @@ flask_apscheduler
 apscheduler
 requests
 urllib3
-git+https://github.com/matteogaito/flask-gapps-connector
+# Gapps requirements
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
 git+https://github.com/matteogaito/sprea-utils

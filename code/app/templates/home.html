@@ -1,8 +1,8 @@
 <h1> My Google Drive Directories </h1>
 {% for dir in mydrivedirs -%}
-{{dir['title']}}
+{{dir['title']}}, 
 {% endfor -%}
 <h1> My 10 events </h1>
-{% for event in mytenevents %}
-{{ event }}
+{% for event in myevents %}
+{{ event['summary'] }}, 
 {% endfor %}

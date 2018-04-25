@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 from app import app
 
+import sys
+sys.path.insert(0, '/vagrant/sprea-utils')
+
 from sprea_utils import Sprea
-from flask_gapps_connector import DriveInizialize
+from app.gapps_connector import DriveInizialize
 from app.telegram_connector import botSendMessage
 
 # sl object contain logged session in sprea.it
 sl = Sprea(app.config['SPREA_USERNAME'], app.config['SPREA_PASSWORD'])
+
+import logging
+log_sl = logging.getLogger('sprea_utils')
+log_sl.addHandler(logging.StreamHandler(sys.stdout))
+log_sl.setLevel(logging.DEBUG)
 
 
 @app.route('/sprea/check_last_pdf')

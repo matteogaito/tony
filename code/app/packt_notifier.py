@@ -1,5 +1,6 @@
 from app import app
 
+from emoji import emojize
 from app.telegram_connector import botSendMessage
 
 import requests
@@ -23,7 +24,8 @@ def get_free_book_title():
 
 def packt_freebook_notifier_bot():
     title = get_free_book_title()
-    botSendMessage('"{}" is the today free book of packtpub\n\n:arrow_right: {}'.format(title,packt_url))
+    botmsg = emojize(":closed_book: \"{}\" is the today free book of packtpub\n\n:arrow_right: {}".format(title, packt_url), use_aliases=True)
+    botSendMessage(botmsg)
 
 @app.route('/packt_notifier_url')
 def packt_notifier_url():

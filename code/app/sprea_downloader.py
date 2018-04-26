@@ -13,9 +13,11 @@ sl = Sprea(app.config['SPREA_USERNAME'], app.config['SPREA_PASSWORD'])
 
 import logging
 log_sl = logging.getLogger('sprea_utils')
-log_sl.addHandler(logging.StreamHandler(sys.stdout))
+formatter = logging.Formatter("%(asctime)s - [%(process)d] - %(levelname)s %(module)s: %(message)s")
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(formatter)
+log_sl.addHandler(handler)
 log_sl.setLevel(logging.DEBUG)
-
 
 @app.route('/sprea/check_last_pdf')
 def checkEsistenceLastPDFintoGdrive():

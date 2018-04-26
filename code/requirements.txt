@@ -12,6 +12,7 @@ PyDrive
 #PyOpenSSL
 pyasn1==0.4.2
 python-telegram-bot
+emoji
 telegram
 flask_apscheduler
 apscheduler

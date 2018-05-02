@@ -12,3 +12,4 @@ db = SQLAlchemy(app)
 from app import home
 from app import sprea_downloader
 from app import packt_notifier
+from app import job_documentation

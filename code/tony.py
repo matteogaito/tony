@@ -8,4 +8,4 @@ scheduler.start()
 
 if __name__ == '__main__':
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-    app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
+    app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'], reloader_type='stat')

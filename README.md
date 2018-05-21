@@ -10,7 +10,7 @@ Tony is my virtual assistance? Maybe in a future... At the moment he do for me b
 * Oncall report - every month I need to send to HR the oncall time worked hours. This feature gets the hours worked from my google calendar and send an email to HR
 
 ## Screenshot
-WIP
+![screenshot1](screenshots/tonybot_example1.jpg)
 
 ## Install 
 WIP

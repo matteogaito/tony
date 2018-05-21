@@ -5,13 +5,12 @@ import imaplib
 import base64
 import email
 
-download_dir = "/tmp/imap_downloads"
+download_dir = "/tony/downloads"
 
 
 class Imap(object):
     def __init__(self, server=None, port=993, username=None, password=None, timeout=10):
         # connect to server
-        print("inizializing")
         if port == 993:
             try:
                 conn = imaplib.IMAP4_SSL(server, port)
@@ -71,20 +70,23 @@ class Imap(object):
         else:
             return None
 
+    def delete_message(self, mailbox="INBOX", msg_id=None):
+        self.conn.select(mailbox)
+        self.conn.store(msg_id, '+FLAGS', r'\Deleted')
+        self.conn.expunge()
 
 class Email(object):
-    def download_attachments(self, attachments=None, download_dir=download_dir):
-        if not attachments:
+    def download_attachment(attachment, download_dir=download_dir):
+        if not attachment:
+            print("vuoto")
             return None
 
-        for a in attachments:
-            #print(a)
-            filename = a.get_filename()
-            filepath = download_dir + '/' + filename
-            print(filepath)
-            if not os.path.isfile(filepath):
-                fp = open(filepath, 'wb')
-                fp.write(a.get_payload(decode=True))
-                fp.close()
+        filename = attachment.get_filename()
+        filepath = download_dir + '/' + filename
+        if not os.path.isfile(filepath):
+            fp = open(filepath, 'wb')
+            fp.write(attachment.get_payload(decode=True))
+            fp.close()
 
+        return(filepath)
 

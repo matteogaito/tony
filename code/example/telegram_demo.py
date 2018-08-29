@@ -1,7 +1,7 @@
 # - *- coding: utf- 8 - *-
 from telegram.ext import Updater, CommandHandler
 
-TOKEN = '599022955:AAE1nYKHktdhC_iwD4VoRCDkMxO9wYbzqkU'
+TOKEN = 'xxxx'
 
 
 def start(bot, update):

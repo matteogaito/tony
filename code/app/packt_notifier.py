@@ -3,23 +3,29 @@ from app import app
 from emoji import emojize
 from app.telegram_connector import botSendMessage
 
-import requests
-from bs4 import BeautifulSoup
+from selenium import webdriver
 
+import time
 
 packt_url = "https://www.packtpub.com/packt/offers/free-learning"
 
+
+@app.route('/packtpub/todayfree')
 def get_free_book_title():
     packt_url = "https://www.packtpub.com/packt/offers/free-learning"
-    session = requests.Session()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    driver = webdriver.Chrome('/tony/bin/chromedriver', chrome_options=chrome_options, service_args=[ '--logpath=/tony/bin/chromedriver.log' ] )
+    app.logger.info("Opening chrome on free packt url")
+    driver.get(packt_url)
     app.logger.info("Get pack free learning page")
-    freebook_req = session.get(packt_url, verify=True, headers=app.config['HTTP_HEADERS'])
-    page_content = freebook_req.content
-    app.logger.info("Parsing page with beautiful soup")
-    soup = BeautifulSoup(page_content)
-    div_title = soup.find("div", "dotd-title").h2
-    title = (div_title.text).strip()
-    app.logger.info("Title {}".format(title))
+    app.logger.info("Start sleeping")
+    time.sleep(10)
+    app.logger.info("search with xpath")
+    title_element = driver.find_element_by_class_name('product__title')
+    title = title_element.text
+    app.logger.info("Title is {}".format(title))
     return title
 
 def packt_freebook_notifier_bot():

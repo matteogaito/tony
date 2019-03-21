@@ -14,3 +14,12 @@ Tony is my virtual assistance? Maybe in a future... At the moment he do for me b
 
 ## Install 
 WIP
+
+## Deploy on RPI
+~~~~
+cd /opt
+git clone
+cd tony
+docker build -t tony:0.0.1 -f Dockerfile-armv7l .
+docker run -d -v /opt/tony/code:/tony -p 5000:5000 -t tony:0.0.1
+~~~~

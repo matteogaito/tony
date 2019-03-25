@@ -1,4 +1,4 @@
-FROM resin/raspberrypi3-python:3.5
+FROM python:stretch
 MAINTAINER Matteo Gaito
 
 ADD code/requirements.txt /etc/tony-requirements.txt
@@ -11,9 +11,9 @@ RUN locale-gen
 RUN apt-get install -y libxss1 libappindicator1 wget
 RUN apt-get install -y fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libnspr4 libnss3 libxtst6 lsb-release xdg-utils
 RUN apt-get install -y xvfb
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN dpkg -i google-chrome*.deb
-RUN apt-get install -f
+RUN echo "deb http://security.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install chromium-browser -y
 
 RUN pip3 install -r /etc/tony-requirements.txt
 
